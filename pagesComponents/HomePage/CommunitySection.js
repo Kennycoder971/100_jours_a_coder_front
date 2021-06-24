@@ -11,6 +11,19 @@ export default function CommunitySection() {
                 <ButtonLink to='/login' color='blue'>
                     {"S'inscrire"}
                 </ButtonLink>
+            </div>
+
+            <div className={classes.imgGrid}>
+                <div className={classes.subGrid}>
+                    <Image src='/images/home-page/col-1.svg' height={120} width={50} />
+                    <Image src='/images/home-page/col-2.svg' height={120} width={50} />
+                    <Image src='/images/home-page/col-3.svg' height={120} width={50} />
+                </div>
+                <div className={classes.subGrid}>
+                    <Image src='/images/home-page/col-4.svg' height={120} width={50} />
+                    <Image src='/images/home-page/col-5.svg' height={120} width={50} />
+                    <Image src='/images/home-page/col-6.svg' height={120} width={50} />
+                </div>
 
             </div>
         </section>

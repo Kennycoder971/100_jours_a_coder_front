@@ -1,0 +1,23 @@
+.footer {
+    color: var(--white);
+    background-color: var(--black);
+    min-height: 50vh;
+    margin-top: 10vh;
+    position: relative;
+
+    .wavesContainer{
+        height: 10vh;
+        transform: translateY(-50%);
+    }
+
+    p,
+    ul li {
+        margin-bottom: 1.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+        width: 90%;
+        max-width: 1100px;
+    }
+}
