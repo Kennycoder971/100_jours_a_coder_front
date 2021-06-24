@@ -1,10 +1,11 @@
-import '../styles/globals.scss'
-import {Fragment} from 'react'
-import Navigation from '../components/navigation/Navigation'
+import '@/styles/globals.scss'
+import { Fragment } from 'react'
+import Navigation from '@/components/Navigation/Navigation'
+
 function MyApp({ Component, pageProps }) {
   return <Fragment>
-      <Navigation/>
-      <Component {...pageProps} />
+    <Navigation />
+    <Component {...pageProps} />
   </Fragment>
 }
 
