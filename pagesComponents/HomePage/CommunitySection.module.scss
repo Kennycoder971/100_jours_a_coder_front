@@ -28,7 +28,7 @@
             margin-top: 5vh;
             
             img{
-                width: 30px;
+                width: 40px;
             }
         }
 
@@ -37,12 +37,10 @@
         }
        
         .transTop {
-            transform: translateY(-30px);
+            transform: translateY(-20px);
         }
     }
 
-   
-    
 }
 
 
@@ -50,12 +48,26 @@
     .community {
 
         .imgGrid {
+            flex-wrap: nowrap;
+            align-items: center;
 
+            .text {
+                order: 2;
+                padding:0 3vw;
+            }
+            .sub1 {
+                 order: 1;
+                 margin-right: 0;
+            }
+            .sub2 {
+                order: 3;
+            }
             .subGrid {
-
+                flex: 1 1 30%;
                 img {
-                    width: 3rem;
+                    width: 120%;
                 }
+                
             }
         }
     }

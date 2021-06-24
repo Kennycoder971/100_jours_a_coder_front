@@ -49,3 +49,9 @@
 }
 
 }
+
+@media screen and (min-width:768px) {
+    .topMenu {
+        display: none;
+    }
+}

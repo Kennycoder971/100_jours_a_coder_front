@@ -5,7 +5,7 @@ import ButtonLink from '@/components/BtnLink.js/BtnLink'
 export default function CommunitySection() {
     return (
         <section className={classes.community}>
-            
+
 
             <div className={classes.imgGrid}>
                 <div className={classes.text}>
@@ -17,19 +17,19 @@ export default function CommunitySection() {
                     </ButtonLink>
                 </div>
                 <div className={`${classes.subGrid} ${classes.sub1}`}>
-                    <Image src='/images/home-page/col-1.svg' height={120} width={50} />
+                    <div><Image src='/images/home-page/col-1.svg' height={120} width={50} alt='Personnes' /></div>
                     <div className={classes.transTop}>
-                        <Image src='/images/home-page/col-2.svg' height={120} width={50} />
+                        <Image src='/images/home-page/col-2.svg' height={120} width={50} alt='Personnes' />
                     </div>
-                    <Image src='/images/home-page/col-3.svg' height={120} width={50} />
+                    <div><Image src='/images/home-page/col-3.svg' height={120} width={50} alt='Personnes' /></div>
                 </div>
-                <div className={classes.subGrid}>
-                <div className={classes.transTop}>
-                    <Image src='/images/home-page/col-4.svg' height={120} width={50} />
-                </div>
-                    <Image src='/images/home-page/col-5.svg' height={120} width={50} />
+                <div className={`${classes.subGrid} ${classes.sub2}`}>
                     <div className={classes.transTop}>
-                        <Image src='/images/home-page/col-6.svg' height={120} width={50} />
+                        <Image src='/images/home-page/col-4.svg' height={120} width={50} alt='Personnes' />
+                    </div>
+                    <div><Image src='/images/home-page/col-5.svg' height={120} width={50} alt='Personnes' /></div>
+                    <div className={classes.transTop}>
+                        <Image src='/images/home-page/col-6.svg' height={120} width={50} alt='Personnes' />
                     </div>
                 </div>
 

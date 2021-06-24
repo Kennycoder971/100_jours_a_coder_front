@@ -13,14 +13,20 @@ export default function Footer() {
 
                 <p>Copyright &#169; L’année de 90j</p>
                 <ul>
-                    <li> <Link href="/">Accueil</Link> </li>
-                    <li> <Link href="/">Objectifs</Link> </li>
-                    <li> <Link href="/">Tâches</Link> </li>
-                    <li> <Link href="/">Profil</Link> </li>
-                    <li> <Link href="/">Tableau de bord</Link> </li>
-                    <li><BtnLink color='blue' to='/login'>Inscription</BtnLink></li>
-                    <li><BtnLink color='green' to='/login'>Connexion</BtnLink></li>
+                    <div>
+                        <li> <Link href="/">Accueil</Link> </li>
+                        <li> <Link href="/">Objectifs</Link> </li>
+                        <li> <Link href="/">Tâches</Link> </li>
+                    </div>
+                    <div>
+                        <li> <Link href="/">Profil</Link> </li>
+                        <li> <Link href="/">Tableau de bord</Link> </li>
+                    </div>
                 </ul>
+                <div className={classes.btnContainer}>
+                    <div><BtnLink color='blue' to='/login'>Inscription</BtnLink></div>
+                    <BtnLink color='green' to='/login'>Connexion</BtnLink>
+                </div>
             </div>
         </footer>
     )
