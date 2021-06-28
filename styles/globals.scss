@@ -35,8 +35,8 @@ ul {
   display: inline-block;
   color: var(--white);
   box-shadow: var(--flat-sh);
-  padding: var(--xs-size) var(--s-size);
-  border-radius: 10px;
+  padding: var(--xs-size) var(--m-size);
+  border-radius: 10px;border: 0;
 }
 
 .container {
@@ -49,4 +49,18 @@ h1,
 h2,
 h3 {
     font-weight: 900;
+}
+
+.blue-input {
+  width: 100%;
+  padding: var(--s-size);
+  border-radius:10px ;
+  border: 0;
+  background-color: var(--blue-trans) ;
+  outline-color: rgb(68, 0, 255);
+}
+
+.blue-link {
+  font-weight: bold;
+  color: var(--blue);
 }

@@ -8,27 +8,30 @@ export default function Hero() {
         <Fragment>
             <div className={classes.heroContainer}>
 
+                <div className={classes.heroContainerWrapper}>
 
-                <main className={classes.hero}>
+                    <main className={classes.hero}>
 
-                    <h1>{'N\''}abandonnez <br /> plus vos <br /> résolutions.</h1>
-                    <p>Accomplissez vos objectifs en 90 jours <br />
-                        et partagez vos résultats!</p>
+                        <h1>{'N\''}abandonnez <br /> plus vos <br /> résolutions.</h1>
+                        <p>Accomplissez vos objectifs en 90 jours <br />
+                            et partagez vos résultats!</p>
 
-                    <div className={classes.btnContainer}>
-                        <BtnLink color='blue' to='/login'>
-                            Se connecter
-                        </BtnLink>
+                        <div className={classes.btnContainer}>
+                            <BtnLink color='blue' to='/login'>
+                                Se connecter
+                            </BtnLink>
 
-                        <BtnLink color='black' to='/'>
-                            {' C\'est quoi ?'}
-                        </BtnLink>
+                            <BtnLink color='black' to='/'>
+                                {' C\'est quoi ?'}
+                            </BtnLink>
+                        </div>
+
+                    </main>
+                    <div className={classes.mainBg}></div>
+                    <div className={classes.imgContainer}>
+                        <Image alt='Objectif' src='/images/home-page/img-header.svg' height={350} width={350} />
                     </div>
 
-                    <div className={classes.mainBg}></div>
-                </main>
-                <div className={classes.imgContainer}>
-                    <Image alt='Objectif' src='/images/home-page/img-header.svg' height={350} width={350} />
                 </div>
             </div>
         </Fragment>

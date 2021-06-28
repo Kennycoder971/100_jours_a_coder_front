@@ -1,4 +1,4 @@
-import classes from './BtnLink.module.scss'
+import classes from './Button.module.scss'
 export default function Button(props) {
     const { onClick, children, color } = props
 
@@ -10,6 +10,10 @@ export default function Button(props) {
                 return classes.blue
             case 'black':
                 return classes.black
+            case 'fb':
+                return classes.fb
+            case 'google':
+                return classes.google
         }
     }
 

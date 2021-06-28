@@ -1,5 +1,5 @@
 .community {
-    min-height: 40vh;
+    min-height: 30vh;
     margin-top: 10vh;
 
     .imgGrid {
@@ -46,7 +46,8 @@
 
 @media(min-width:500px){
     .community {
-
+        height: 40vh;
+        
         .imgGrid {
             flex-wrap: nowrap;
             align-items: center;
@@ -71,4 +72,20 @@
             }
         }
     }
+}
+@media(min-width:768px){ 
+
+    .community {
+        .imgGrid {
+            .text {
+                width: 50%;
+            }
+            .subGrid {
+                img {
+                    width:70px;
+                }
+            }
+        }
+    }
+
 }

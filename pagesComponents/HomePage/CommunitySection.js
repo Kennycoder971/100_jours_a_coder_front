@@ -5,8 +5,6 @@ import ButtonLink from '@/components/BtnLink.js/BtnLink'
 export default function CommunitySection() {
     return (
         <section className={classes.community}>
-
-
             <div className={classes.imgGrid}>
                 <div className={classes.text}>
                     <h2>Rejoignez une <br />

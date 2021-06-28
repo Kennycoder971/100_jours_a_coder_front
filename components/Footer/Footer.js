@@ -7,7 +7,7 @@ export default function Footer() {
     return (
         <footer className={classes.footer}>
             <div className={classes.wavesContainer}>
-                <Image src='/images/home-page/footer-waves.svg' width={700} height={100} />
+                <Image src='/images/home-page/footer-waves.svg' width={700} height={100} alt='' />
             </div>
             <div className={classes.container}>
 
