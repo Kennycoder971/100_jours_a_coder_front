@@ -22,7 +22,6 @@ const LoginPage = () => (
       <Image width={320} height={400} src='/images/login-signup/form-wave.svg' alt='waves' />
     </div>
     <div className={styles.container}>
-
       <div className={styles.formContainer}>
         <div className={styles.text}>
           <div className={styles.logo}>

@@ -1,0 +1,14 @@
+.Challenge {
+    text-align: center;
+    padding-top: var(--xl-size);
+    
+    .charts {
+        display: flex;
+        margin: auto;
+        width: fit-content;
+         padding: var(--l-size);
+        & > div {
+            margin-left: var(--l-size);
+        }
+     }
+}
