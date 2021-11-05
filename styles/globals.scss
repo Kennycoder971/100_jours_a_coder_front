@@ -1,7 +1,7 @@
-@import './variables';
+@import "./variables";
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -11,12 +11,12 @@ html {
 }
 html,
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   color: var(--black);
 }
 
 body {
-   font-size: 16px;;
+  font-size: 16px;
 }
 
 a {
@@ -36,7 +36,8 @@ ul {
   color: var(--white);
   box-shadow: var(--flat-sh);
   padding: var(--xs-size) var(--m-size);
-  border-radius: 10px;border: 0;
+  border-radius: 10px;
+  border: 0;
 }
 
 .container {
@@ -48,19 +49,32 @@ ul {
 h1,
 h2,
 h3 {
-    font-weight: 900;
+  font-weight: 900;
 }
 
 .blue-input {
   width: 100%;
   padding: var(--s-size);
-  border-radius:10px ;
+  border-radius: 10px;
   border: 0;
-  background-color: var(--blue-trans) ;
+  background-color: var(--blue-trans);
   outline-color: rgb(68, 0, 255);
 }
 
 .blue-link {
   font-weight: bold;
   color: var(--blue);
+}
+
+// SelectOption component
+.select-option {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+//Message component
+.user-one {
+  justify-self: end;
 }

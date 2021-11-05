@@ -1,0 +1,42 @@
+.Messages {
+  margin-top: 5vh;
+  .container {
+    max-width: 1100px;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: var(--m-size);
+
+    h1 {
+      margin-bottom: var(--m-size);
+      font-size: var(--ml-size);
+    }
+
+    .nav {
+      display: flex;
+
+      svg {
+        margin-right: 3vw;
+      }
+
+      .backBtn {
+        cursor: pointer;
+      }
+    }
+    main {
+      display: grid;
+      grid-template-columns: repeat(2, 30% 70%);
+      min-height: 50vh;
+
+      .userInfo,
+      .messages {
+        padding: var(--m-size);
+        border: 1px solid var(--gray);
+      }
+
+      .messages {
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+  }
+}
