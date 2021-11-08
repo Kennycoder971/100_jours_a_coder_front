@@ -21,3 +21,21 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .UserInfo {
+    display: block;
+
+    img {
+      width: 30px;
+      border-radius: 5px;
+    }
+
+    .userDetails {
+      margin-left: 0;
+      h4 {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

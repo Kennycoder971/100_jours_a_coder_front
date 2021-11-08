@@ -75,6 +75,57 @@ h3 {
 }
 
 //Message component
+.user-one,
+.user-two {
+  width: fit-content;
+  border-radius: 10px;
+  position: relative;
+}
+
 .user-one {
   justify-self: end;
+  padding: var(--s-size);
+  background-color: var(--blue);
+  color: var(--white);
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid var(--blue);
+    right: 0;
+    transform: translateX(100%);
+  }
+}
+
+.user-two {
+  background-color: var(--gray);
+  color: var(--black);
+  padding: var(--s-size);
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid var(--gray);
+    left: 0;
+    transform: translateX(-100%);
+  }
+}
+
+// Dropzones
+.dropzone {
+  height: 20vh;
+  display: grid;
+  place-content: center;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  border: 2px dashed var(--gray);
+  text-align: center;
+  margin-bottom: 5vh;
 }
