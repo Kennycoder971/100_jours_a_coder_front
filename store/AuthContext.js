@@ -1,5 +1,7 @@
 import { createContext, useState } from "react";
+import axios from "axios";
 import { API_URL } from "config";
+
 const AuthContext = createContext();
 
 // {
@@ -27,7 +29,23 @@ export function AuthContextProvider({ children }) {
 
   // Register user
   const register = async ({ username, email, password }) => {
-    console.log(username, email, password);
+    try {
+      const data = await axios.post(`${API_URL}/auth/register`, {
+        username,
+        email,
+        password,
+      });
+
+      // Set user with token and data key
+      setUser({
+        token: data.data.token,
+        user: data.data.user,
+      });
+
+      return data.data;
+    } catch (error) {
+      return error.response.data;
+    }
   };
 
   // Login user
