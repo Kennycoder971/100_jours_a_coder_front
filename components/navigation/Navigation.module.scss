@@ -1,3 +1,5 @@
+// Mobile first approach
+
 .navigation {
   height: 95vh;
   background-color: var(--blue);
@@ -94,9 +96,7 @@
     .navMenu {
       display: flex;
 
-      .navDesk {
-        display: block;
-
+      .blueDesk {
         span {
           color: var(--blue);
         }

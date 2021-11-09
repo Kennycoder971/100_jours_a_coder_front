@@ -1,41 +1,48 @@
-import '@/styles/globals.scss'
-import { Fragment } from 'react'
-import Navigation from '@/components/Navigation/Navigation'
-import Footer from '@/components/Footer/Footer'
-import pageDontNeedNavigation from '../helpers/pageDontNeedNavigation'
-import pageDontNeedFooter from '../helpers/pageDontNeedFooter'
-import { useRouter } from 'next/router'
-
+import "@/styles/globals.scss";
+import { AuthContextProvider } from "@/store/AuthContext";
+import Navigation from "@/components/Navigation/Navigation";
+import Footer from "@/components/Footer/Footer";
+import pageDontNeedNavigation from "../helpers/pageDontNeedNavigation";
+import pageDontNeedFooter from "../helpers/pageDontNeedFooter";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter()
-  const dontNeedNav = pageDontNeedNavigation(router)
-  const dontNeedFooter = pageDontNeedFooter(router)
+  const router = useRouter();
+  const dontNeedNav = pageDontNeedNavigation(router);
+  const dontNeedFooter = pageDontNeedFooter(router);
 
   if (dontNeedNav && dontNeedFooter) {
-    return <Fragment>
-      <Component {...pageProps} />
-    </Fragment>
+    return (
+      <AuthContextProvider>
+        <Component {...pageProps} />
+      </AuthContextProvider>
+    );
   }
 
   if (dontNeedNav) {
-    return <Fragment>
-      <Component {...pageProps} />
-      <Footer />
-    </Fragment>
+    return (
+      <AuthContextProvider>
+        <Component {...pageProps} />
+        <Footer />
+      </AuthContextProvider>
+    );
   }
   if (dontNeedFooter) {
-    return <Fragment>
-      <Navigation />
-      <Component {...pageProps} />
-    </Fragment>
+    return (
+      <AuthContextProvider>
+        <Navigation />
+        <Component {...pageProps} />
+      </AuthContextProvider>
+    );
   }
 
-  return <Fragment>
-    <Navigation />
-    <Component {...pageProps} />
-    <Footer />
-  </Fragment>
+  return (
+    <AuthContextProvider>
+      <Navigation />
+      <Component {...pageProps} />
+      <Footer />
+    </AuthContextProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;

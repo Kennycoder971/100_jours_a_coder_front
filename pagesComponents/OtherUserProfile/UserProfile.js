@@ -5,7 +5,7 @@ import APropos from "./Apropos";
 import FriendList from "./FriendList";
 import Link from "next/link";
 import Image from "next/image";
-import { FiSettings } from "react-icons/fi";
+import { FaRegEnvelope } from "react-icons/fa";
 import ProfileModal from "./ProfileModal";
 
 const UserProfile = () => {
@@ -61,7 +61,7 @@ const UserProfile = () => {
           className={styles.userSettings}
           onClick={(e) => setShowModal(true)}
         >
-          <FiSettings />
+          <FaRegEnvelope />
         </div>
       </div>
 
