@@ -1,9 +1,11 @@
 import "@/styles/globals.scss";
+import "react-toastify/dist/ReactToastify.css";
 import { AuthContextProvider } from "@/store/AuthContext";
 import Navigation from "@/components/Navigation/Navigation";
 import Footer from "@/components/Footer/Footer";
 import pageDontNeedNavigation from "../helpers/pageDontNeedNavigation";
 import pageDontNeedFooter from "../helpers/pageDontNeedFooter";
+
 import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {

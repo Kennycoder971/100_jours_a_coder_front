@@ -1,15 +1,17 @@
 import styles from "./APropos.module.scss";
 
-export default function APropos() {
+export default function APropos({ user }) {
   return (
     <div className={styles.APropos}>
       <div className={styles.aProposContainer}>
         <h3>Vue d'ensemble</h3>
-        <p>Nom: Jean</p>
-        <p>Prénom: Jean</p>
-        <p>Adresse: 2 rue de la poterne</p>
-        <p>Téléphone: Jean</p>
-        <p>Email: Jean@gmail.com</p>
+        <p>Nom: {user?.lastname ? user.lastname : "Non renseigné"}</p>
+        <p>Prénom:{user?.firstname ? user.firstname : "Non renseigné"}</p>
+        <p>Adresse: {user?.address ? user.address : "Non renseigné"}</p>
+        <p>
+          Téléphone: {user?.phone_number ? user.phone_number : "Non renseigné"}
+        </p>
+        <p>Email: {user?.email}</p>
       </div>
     </div>
   );

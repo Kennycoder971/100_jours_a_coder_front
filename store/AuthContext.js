@@ -1,48 +1,31 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "config";
+import Cookies from "universal-cookie";
 
 const AuthContext = createContext();
 
-// {
-//   firstname: "",
-//   lastname: "",
-//   username: "random",
-//   phone_number: "0123456789",
-//   email: "random@gmail.com",
-//   intro: "",
-//   profile: "",
-//   profile_picture: "",
-//   address: "",
-//   city: "",
-//   postal_code: "",
-//   country: "",
-//   gender: "M",
-//   birth_date: "",
-//   createdAt: "",
-//   updatedAt: "",
-// }
-
 export function AuthContextProvider({ children }) {
   const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
+
+  useEffect(() => checkUserLoggedIn(), []);
 
   // Register user
   const register = async ({ username, email, password }) => {
     try {
-      const data = await axios.post(`${API_URL}/auth/register`, {
+      const response = await axios.post(`${API_URL}/auth/register`, {
         username,
         email,
         password,
       });
+      const cookies = new Cookies();
 
-      // Set user with token and data key
-      setUser({
-        token: data.data.token,
-        user: data.data.user,
-      });
+      // Set the cookie jwt
+      cookies.set("jwt", response.data.token, { path: "/" });
 
-      return data.data;
+      setUser(response.data.data);
+
+      return response.data;
     } catch (error) {
       return error.response.data;
     }
@@ -60,12 +43,25 @@ export function AuthContextProvider({ children }) {
 
   // Check if user is logged in
   const checkUserLoggedIn = async (user) => {
-    console.log("Check");
+    const cookies = new Cookies();
+    const jwt = cookies.get("jwt");
+
+    try {
+      const response = await axios.get(`${API_URL}/auth/me`, {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
+      });
+
+      setUser(response.data.data);
+    } catch (error) {
+      setUser(null);
+    }
   };
 
   const context = {
     user,
-    error,
+
     register,
     login,
     logout,

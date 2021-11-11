@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import HambergerMenu from "./HambergerMenu";
 import AuthContext from "@/store/AuthContext";
+
 export default function Navigation() {
   const [navOpen, setNavOpen] = useState(false);
   const { user, logout } = useContext(AuthContext);
@@ -16,7 +17,6 @@ export default function Navigation() {
           <div className={classes.closeBtn} onClick={(e) => setNavOpen(false)}>
             <span>x</span>
           </div>
-
           {/* If logged */}
           {user && (
             <div className={classes.user}>
@@ -29,6 +29,7 @@ export default function Navigation() {
               <span>Jean-Kévin</span>
             </div>
           )}
+
           <div className={classes.logo}>
             <Link href="/">
               <a>
@@ -41,7 +42,6 @@ export default function Navigation() {
               </a>
             </Link>
           </div>
-
           <ul className={classes.navMenu}>
             {/* If NOT logged */}
             {!user && (

@@ -8,7 +8,7 @@ import Image from "next/image";
 import { FiSettings } from "react-icons/fi";
 import ProfileModal from "./ProfileModal";
 
-const UserProfile = () => {
+const UserProfile = ({ user }) => {
   // For the tabs
   const [selected, setSelected] = useState(0);
   const tabs = ["Profil", "À propos", "Amis"].map((tab, index) => {
@@ -22,6 +22,8 @@ const UserProfile = () => {
       </li>
     );
   });
+
+  console.log(user);
 
   // For the modal
   const [showModal, setShowModal] = useState(false);
@@ -54,8 +56,8 @@ const UserProfile = () => {
 
       <div className={styles.user}>
         <div className={styles.userInfo}>
-          <h3 className={styles.username}>Jean-claude</h3>
-          <p>Développeur web</p>
+          <h3 className={styles.username}>{user?.username}</h3>
+          <p>{user?.intro}</p>
         </div>
         <div
           className={styles.userSettings}
@@ -66,7 +68,11 @@ const UserProfile = () => {
       </div>
 
       {showModal && (
-        <ProfileModal showModal={showModal} setShowModal={setShowModal} />
+        <ProfileModal
+          user={user}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
       )}
 
       <ul className={styles.tabs}>{tabs}</ul>
@@ -75,21 +81,15 @@ const UserProfile = () => {
         <React.Fragment>
           <article className={styles.description}>
             <h3 className={styles.descriptionTitle}>Description</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-              maiores autem accusantium asperiores impedit dolorem omnis porro
-              aliquid pariatur dolores totam quaerat architecto ratione dolor
-              consequatur possimus, officia adipisci maxime!
-            </p>
+            <p>{user?.profile ? user.profile : "Pas de description !"}</p>
           </article>
-
           <Challenge />
         </React.Fragment>
       )}
 
-      {selected === 1 && <APropos />}
+      {selected === 1 && <APropos user={user} />}
 
-      {selected === 2 && <FriendList />}
+      {selected === 2 && <FriendList user={user} />}
     </div>
   );
 };
