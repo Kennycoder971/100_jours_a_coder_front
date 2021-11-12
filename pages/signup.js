@@ -3,8 +3,8 @@ import AuthContext from "@/store/AuthContext";
 import { useContext } from "react";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
-import getErrorMsg from "@/helpers/getErrorMsg";
 import "react-toastify/dist/ReactToastify.css";
+import getErrorMsg from "@/helpers/getErrorMsg";
 import {
   isEmail,
   isEqual,
@@ -14,6 +14,7 @@ import {
 export default function Signup() {
   const { register } = useContext(AuthContext);
   const router = useRouter();
+
   async function registerUser(fields, evt) {
     evt.preventDefault();
     let error = false;

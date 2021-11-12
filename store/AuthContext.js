@@ -27,18 +27,39 @@ export function AuthContextProvider({ children }) {
 
       return response.data;
     } catch (error) {
+      setUser(null);
       return error.response.data;
     }
   };
 
   // Login user
   const login = async ({ email, password }) => {
-    console.log(email, password);
+    try {
+      const response = await axios.post(`${API_URL}/auth/login`, {
+        email,
+        password,
+      });
+      const cookies = new Cookies();
+
+      // Set the cookie jwt
+      cookies.set("jwt", response.data.token, { path: "/" });
+
+      setUser(response.data.data);
+
+      return response.data;
+    } catch (error) {
+      setUser(null);
+      return error.response.data;
+    }
   };
 
   // Logout user
   const logout = async () => {
-    console.log("Logout");
+    const cookies = new Cookies();
+    cookies.remove("jwt", {
+      path: "/",
+    });
+    setUser(null);
   };
 
   // Check if user is logged in
@@ -46,22 +67,22 @@ export function AuthContextProvider({ children }) {
     const cookies = new Cookies();
     const jwt = cookies.get("jwt");
 
-    try {
-      const response = await axios.get(`${API_URL}/auth/me`, {
-        headers: {
-          Authorization: `Bearer ${jwt}`,
-        },
-      });
-
-      setUser(response.data.data);
-    } catch (error) {
-      setUser(null);
-    }
+    if (jwt)
+      try {
+        const response = await axios.get(`${API_URL}/auth/me`, {
+          headers: {
+            Authorization: `Bearer ${jwt}`,
+          },
+        });
+        console.log(response.data.data);
+        setUser(response.data.data);
+      } catch (error) {
+        setUser(null);
+      }
   };
 
   const context = {
     user,
-
     register,
     login,
     logout,

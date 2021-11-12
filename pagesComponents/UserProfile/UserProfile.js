@@ -23,8 +23,6 @@ const UserProfile = ({ user }) => {
     );
   });
 
-  console.log(user);
-
   // For the modal
   const [showModal, setShowModal] = useState(false);
   useEffect(() => {

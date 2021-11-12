@@ -4,7 +4,7 @@ import Button from "@/components/Button/Button";
 import Image from "next/image";
 import { useState } from "react";
 
-const LoginPage = () => {
+const LoginPage = ({ loginUser }) => {
   const [fields, setFields] = useState({
     email: "",
     password: "",
@@ -70,7 +70,11 @@ const LoginPage = () => {
             </p>
           </div>
 
-          <form>
+          <form
+            method="POST"
+            onSubmit={(evt) => loginUser(fields, evt)}
+            action="/user/me"
+          >
             <div className={styles.formControl}>
               <label htmlFor="email">Adresse mail</label>
               <input

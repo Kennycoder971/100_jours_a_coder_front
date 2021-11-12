@@ -99,6 +99,26 @@ export default function Navigation() {
                     </a>
                   </Link>
                 </li>
+
+                <li
+                  className={classes.navItem}
+                  onClick={(e) => {
+                    setNavOpen(false);
+                    logout();
+                  }}
+                >
+                  <Link href="/">
+                    <a>
+                      <Image
+                        width={16}
+                        height={16}
+                        src="/images/navigation/profil.svg"
+                        alt="Profil"
+                      />
+                      <span>Se déconnecter</span>
+                    </a>
+                  </Link>
+                </li>
               </>
             )}
 

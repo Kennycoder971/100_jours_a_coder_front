@@ -7,3 +7,9 @@ export default function Me() {
 
   return <UserProfile user={user} />;
 }
+
+export async function getServerSideProps() {
+  return {
+    props: {},
+  };
+}
