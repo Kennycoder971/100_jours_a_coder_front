@@ -42,7 +42,7 @@ const UserProfile = ({ user }) => {
           height={500}
           src={
             user?.profile_cover
-              ? `${API_URL}/uploads/${user?.profile_cover}`
+              ? `http://localhost:5000/uploads/${user?.profile_cover}`
               : "/images/user-profile/no-bg.jpg"
           }
           alt="Fond d'écran."
@@ -53,7 +53,7 @@ const UserProfile = ({ user }) => {
             height={60}
             src={
               user?.profile_picture
-                ? `${API_URL}/uploads/${user?.profile_picture}`
+                ? `http://localhost:5000/uploads/${user?.profile_picture}`
                 : "/images/user-profile/no-image.png"
             }
             alt="Fond d'écran."
