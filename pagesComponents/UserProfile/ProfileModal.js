@@ -1,11 +1,11 @@
 import styles from "./ProfileModal.module.scss";
 import ProfileModalForm from "./ProfileModalForm";
 import ProfileModalFormImages from "./ProfileModalFormImages";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons";
 
-export default function ProfileModal({ showModal, setShowModal }) {
+export default function ProfileModal({ setShowModal }) {
   const [currentTab, setCurrentTab] = useState(0);
 
   const tabs = ["Vos informations", "Vos images"].map((tab, index) => {

@@ -1,7 +1,7 @@
 const InputEl = ({
   className,
   inputName,
-  onInput,
+  onChange,
   value,
   type,
   placeholder,
@@ -12,7 +12,7 @@ const InputEl = ({
     id={inputName}
     className={className}
     value={value}
-    onInput={onInput}
+    onChange={onChange}
     placeholder={placeholder}
   />
 );
@@ -22,7 +22,7 @@ InputEl.defaultProps = {
   className: "blue-input",
   value: "",
   inputName: "",
-  onInput: () => {},
+  onChange: () => {},
   placeholder: "",
 };
 

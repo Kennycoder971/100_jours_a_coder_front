@@ -74,7 +74,6 @@ export function AuthContextProvider({ children }) {
             Authorization: `Bearer ${jwt}`,
           },
         });
-        console.log(response.data.data);
         setUser(response.data.data);
       } catch (error) {
         setUser(null);
@@ -86,6 +85,7 @@ export function AuthContextProvider({ children }) {
     register,
     login,
     logout,
+    setUser,
   };
 
   return (

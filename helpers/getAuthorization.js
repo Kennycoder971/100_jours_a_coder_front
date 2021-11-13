@@ -8,6 +8,6 @@ export default function getAuthorization() {
   const cookies = new Cookies();
   const jwt = cookies.get("jwt");
   return {
-    Autorization: `Bearer ${jwt}`,
+    Authorization: `Bearer ${jwt}`,
   };
 }

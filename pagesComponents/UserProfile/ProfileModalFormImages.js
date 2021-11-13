@@ -1,9 +1,20 @@
 import Dropzone from "react-dropzone";
+import { useState, useContext } from "react";
+import AuthContext from "@/store/AuthContext";
 
 export default function ProfileModalFormImages() {
+  const { user, setUser } = useContext(AuthContext);
+  const [profilePic, setProfilePic] = useState(undefined);
+  const [profileCover, setProfileCover] = useState(undefined);
+
+  const formData = new FormData();
+
+  formData.append("profile_picture", profilePic);
+  formData.append("profile_cover", profileCover);
+  console.log(formData);
   return (
     <form>
-      <Dropzone onDrop={(acceptedFiles) => console.log(acceptedFiles)}>
+      <Dropzone onDrop={(acceptedFiles) => setProfilePic(acceptedFiles[0])}>
         {({ getRootProps, getInputProps }) => (
           <div {...getRootProps()} className="dropzone">
             <input {...getInputProps()} />
@@ -13,7 +24,7 @@ export default function ProfileModalFormImages() {
         )}
       </Dropzone>
 
-      <Dropzone onDrop={(acceptedFiles) => console.log(acceptedFiles)}>
+      <Dropzone onDrop={(acceptedFiles) => setProfileCover(acceptedFiles[0])}>
         {({ getRootProps, getInputProps }) => (
           <div {...getRootProps()} className="dropzone">
             <input {...getInputProps()} />

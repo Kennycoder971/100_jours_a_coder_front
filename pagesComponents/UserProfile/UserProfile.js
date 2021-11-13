@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FiSettings } from "react-icons/fi";
 import ProfileModal from "./ProfileModal";
+import { API_URL } from "config";
 
 const UserProfile = ({ user }) => {
   // For the tabs
@@ -39,14 +40,22 @@ const UserProfile = ({ user }) => {
         <Image
           width={1100}
           height={500}
-          src="/images/user-profile/no-bg.jpg"
+          src={
+            user?.profile_cover
+              ? `${API_URL}/uploads/${user?.profile_cover}`
+              : "/images/user-profile/no-bg.jpg"
+          }
           alt="Fond d'écran."
         />
         <div className={styles.userImage}>
           <Image
             width={60}
             height={60}
-            src="/images/user-profile/no-image.png"
+            src={
+              user?.profile_picture
+                ? `${API_URL}/uploads/${user?.profile_picture}`
+                : "/images/user-profile/no-image.png"
+            }
             alt="Fond d'écran."
           />
         </div>

@@ -70,11 +70,7 @@ const LoginPage = ({ loginUser }) => {
             </p>
           </div>
 
-          <form
-            method="POST"
-            onSubmit={(evt) => loginUser(fields, evt)}
-            action="/user/me"
-          >
+          <form method="POST" onSubmit={(evt) => loginUser(fields, evt)}>
             <div className={styles.formControl}>
               <label htmlFor="email">Adresse mail</label>
               <input
