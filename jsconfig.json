@@ -7,7 +7,8 @@
       "@/pagesComponents/*": ["pagesComponents/*"],
       "@/store/*": ["store/*"],
       "@/helpers/*": ["helpers/*"],
-      "@/queries/*": ["queries/*"]
+      "@/queries/*": ["queries/*"],
+      "@/customHooks/*": ["customHooks/*"]
     }
   }
 }

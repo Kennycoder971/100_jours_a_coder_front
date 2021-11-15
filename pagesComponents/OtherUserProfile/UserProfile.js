@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styles from "./UserProfile.module.scss";
 import Challenge from "@/components/Challenge/Challenge";
-import APropos from "./Apropos";
+import APropos from "./APropos";
 import FriendList from "./FriendList";
 import Link from "next/link";
 import Image from "next/image";
 import { FaRegEnvelope } from "react-icons/fa";
 import ProfileModal from "./ProfileModal";
 
-const UserProfile = () => {
+const UserProfile = ({ user }) => {
+  console.log(user.profile_cover);
   // For the tabs
   const [selected, setSelected] = useState(0);
   const tabs = ["Profil", "À propos", "Amis"].map((tab, index) => {
@@ -39,14 +40,22 @@ const UserProfile = () => {
         <Image
           width={1100}
           height={500}
-          src="/images/user-profile/no-bg.jpg"
+          src={
+            user?.profile_cover
+              ? `http://localhost:5000/uploads/${user?.profile_cover}`
+              : "/images/user-profile/no-bg.jpg"
+          }
           alt="Fond d'écran."
         />
         <div className={styles.userImage}>
           <Image
             width={60}
             height={60}
-            src="/images/user-profile/no-image.png"
+            src={
+              user?.profile_picture
+                ? `http://localhost:5000/uploads/${user?.profile_picture}`
+                : "/images/user-profile/no-image.png"
+            }
             alt="Fond d'écran."
           />
         </div>
@@ -54,14 +63,22 @@ const UserProfile = () => {
 
       <div className={styles.user}>
         <div className={styles.userInfo}>
-          <h3 className={styles.username}>Jean-claude</h3>
-          <p>Développeur web</p>
+          <h3 className={styles.username}>{user?.username}</h3>
+          <p>{user?.intro}</p>
         </div>
-        <div
-          className={styles.userSettings}
-          onClick={(e) => setShowModal(true)}
-        >
-          <FaRegEnvelope />
+        <div className={styles.interaction}>
+          <div
+            className={styles.friendRequest}
+            onClick={async (e) => await createFriendRequest(user.id)}
+          >
+            Ajouter +
+          </div>
+          <div
+            className={styles.userSettings}
+            onClick={(e) => setShowModal(true)}
+          >
+            <FaRegEnvelope />
+          </div>
         </div>
       </div>
 
@@ -75,21 +92,16 @@ const UserProfile = () => {
         <React.Fragment>
           <article className={styles.description}>
             <h3 className={styles.descriptionTitle}>Description</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-              maiores autem accusantium asperiores impedit dolorem omnis porro
-              aliquid pariatur dolores totam quaerat architecto ratione dolor
-              consequatur possimus, officia adipisci maxime!
-            </p>
+            <p>{user?.profile ? user.profile : "Pas de description !"}</p>
           </article>
 
           <Challenge />
         </React.Fragment>
       )}
 
-      {selected === 1 && <APropos />}
+      {selected === 1 && <APropos user={user} />}
 
-      {selected === 2 && <FriendList />}
+      {selected === 2 && <FriendList user={user} />}
     </div>
   );
 };

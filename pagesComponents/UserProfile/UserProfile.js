@@ -2,27 +2,29 @@ import React, { useState, useEffect } from "react";
 import styles from "./UserProfile.module.scss";
 import Challenge from "@/components/Challenge/Challenge";
 import APropos from "./Apropos";
+import FriendRequestsList from "./FriendRequestsList";
 import FriendList from "./FriendList";
 import Link from "next/link";
 import Image from "next/image";
 import { FiSettings } from "react-icons/fi";
 import ProfileModal from "./ProfileModal";
-import { API_URL } from "config";
 
 const UserProfile = ({ user }) => {
   // For the tabs
   const [selected, setSelected] = useState(0);
-  const tabs = ["Profil", "À propos", "Amis"].map((tab, index) => {
-    return (
-      <li
-        onClick={(e) => setSelected(index)}
-        key={index}
-        className={selected === index ? styles.selected : ""}
-      >
-        {tab}
-      </li>
-    );
-  });
+  const tabs = ["Profil", "À propos", "Amis", "Invitations"].map(
+    (tab, index) => {
+      return (
+        <li
+          onClick={(e) => setSelected(index)}
+          key={index}
+          className={selected === index ? styles.selected : ""}
+        >
+          {tab}
+        </li>
+      );
+    }
+  );
 
   // For the modal
   const [showModal, setShowModal] = useState(false);
@@ -97,6 +99,8 @@ const UserProfile = ({ user }) => {
       {selected === 1 && <APropos user={user} />}
 
       {selected === 2 && <FriendList user={user} />}
+
+      {selected === 3 && <FriendRequestsList user={user} />}
     </div>
   );
 };

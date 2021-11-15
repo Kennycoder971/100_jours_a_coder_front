@@ -1,13 +1,13 @@
-import React from 'react';
-import styles from './DropdownElement.module.scss';
+import React from "react";
+import styles from "./DropdownElement.module.scss";
 
-const DropdownElement = ({text, func}) => (
-  <li className={styles.DropdownElement} onClick={func}>
-     {text}
+const DropdownElement = ({ text, onClick }) => (
+  <li className={styles.DropdownElement} onClick={() => onClick()}>
+    {text}
   </li>
 );
 
 DropdownElement.defaultProps = {
-  func:function(){},
-}
+  onClick: function () {},
+};
 export default DropdownElement;

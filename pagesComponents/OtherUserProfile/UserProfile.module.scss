@@ -38,11 +38,17 @@
     display: flex;
     justify-content: space-between;
   }
+  .interaction {
+    display: flex;
+    gap: var(--m-size);
+  }
+
   .userInfo {
     width: fit-content;
   }
 
-  .userSettings {
+  .userSettings,
+  .friendRequest {
     background-color: var(--green);
     height: fit-content;
     padding: 0.1rem var(--xs-size);
