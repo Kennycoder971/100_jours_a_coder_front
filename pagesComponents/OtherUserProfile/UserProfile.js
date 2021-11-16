@@ -7,9 +7,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaRegEnvelope } from "react-icons/fa";
 import ProfileModal from "./ProfileModal";
+import createFriendRequest from "@/queries/friendRequests/createFriendRequest";
+import { toast } from "react-toastify";
 
 const UserProfile = ({ user }) => {
-  console.log(user.profile_cover);
   // For the tabs
   const [selected, setSelected] = useState(0);
   const tabs = ["Profil", "À propos", "Amis"].map((tab, index) => {
@@ -23,6 +24,16 @@ const UserProfile = ({ user }) => {
       </li>
     );
   });
+
+  async function addFriendReq(user) {
+    try {
+      await createFriendRequest(user?.id);
+      toast.success("Votre requête a été envoyée.");
+    } catch (error) {
+      console.log(error.response);
+      toast.error("Vous avez déjà envoyé une requête à cet utilisateur.");
+    }
+  }
 
   // For the modal
   const [showModal, setShowModal] = useState(false);
@@ -69,7 +80,9 @@ const UserProfile = ({ user }) => {
         <div className={styles.interaction}>
           <div
             className={styles.friendRequest}
-            onClick={async (e) => await createFriendRequest(user.id)}
+            onClick={(e) => {
+              addFriendReq(user);
+            }}
           >
             Ajouter +
           </div>
