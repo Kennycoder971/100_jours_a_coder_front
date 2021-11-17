@@ -4,7 +4,6 @@ import Challenge from "@/components/Challenge/Challenge";
 import APropos from "./Apropos";
 import FriendRequestsList from "./FriendRequestsList";
 import FriendList from "./FriendList";
-import Link from "next/link";
 import Image from "next/image";
 import { FiSettings } from "react-icons/fi";
 import ProfileModal from "./ProfileModal";
